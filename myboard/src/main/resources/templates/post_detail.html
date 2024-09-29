@@ -14,24 +14,24 @@
     <!-- dates.format()은 LocalDateTime 타입을 인식하지 못하므로 temporals.format()을 사용 -->
         <span th:text="${#temporals.format(post.createdDate, 'yyyy-MM-dd HH:mm:ss')}"></span>
     </p>
-<!--&lt;!&ndash; 댓글 영역 &ndash;&gt;-->
-<!--    <h2>comment</h2>-->
-<!--    <ul>-->
-<!--        <li th:each="comment : ${comments}">-->
-<!--            <span th:text="${comment.author} + ': ' + ${comment.content}"></span>-->
-<!--        </li>-->
-<!--    </ul>-->
-<!--    <ul>-->
-<!--        <li th:each="post : ${postList}">-->
-<!--            <a th:href="@{/post/{postId}(postId=${post.postId})}" th:text="${post.title}"></a>-->
-<!--        </li>-->
-<!--    </ul>-->
-<!--    &lt;!&ndash;댓글 작성&ndash;&gt;-->
-<!--    <form th:action="@{/posts/{id}/comments(id=${post.id})}" method="POST">-->
-<!--        <input type="text" name="author" placeholder="name" required>-->
-<!--        <textarea name="content" placeholder="write comment" required></textarea>-->
-<!--        <button type="submit">write</button>-->
-<!--    </form>-->
+<!-- 댓글 영역 -->
+    <h2>comment</h2>
+    <ul>
+        <li th:each="comment : ${comments}">
+            <span th:text="${comment.author} + ': ' + ${comment.content}"></span>
+        </li>
+    </ul>
+    <ul>
+        <li th:each="post : ${postList}">
+            <a th:href="@{/post/{postId}(postId=${post.postId})}" th:text="${post.title}"></a>
+        </li>
+    </ul>
+    <!--댓글 작성-->
+    <form th:action="@{/posts/{postId}/comments(postId=${post.postId})}" method="POST">
+        <input type="text" name="author" placeholder="name" required></br>
+        <textarea name="content" placeholder="write comment" required></textarea></br>
+        <button type="submit">write</button>
+    </form>
 </div>
 
 </body>
