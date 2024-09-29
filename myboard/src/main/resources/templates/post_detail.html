@@ -7,15 +7,33 @@
 <body>
 <div>
 <!--  게시글 영역  -->
-    <h1 th:text="${post.title}"></h1>
-    <p th:text="${post.content}"></p>
-    <p><strong>Author:</strong> <span th:text="${post.author}"></span></p>
-    <p><strong>Created Date:</strong>
-    <!-- dates.format()은 LocalDateTime 타입을 인식하지 못하므로 temporals.format()을 사용 -->
-        <span th:text="${#temporals.format(post.createdDate, 'yyyy-MM-dd HH:mm:ss')}"></span>
-    </p>
+    <table>
+        <tr>
+            <th style="text-align:left;">title</th>
+            <td th:text="${post.title}"></td>
+        </tr>
+        <tr>
+            <th style="text-align:left;">author</th>
+            <td th:text="${post.author}"></td>
+        </tr>
+        <tr>
+            <th style="text-align:left;">date</th>
+            <td th:text="${#temporals.format(post.createdDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+        </tr>
+        <tr>
+            <th style="text-align:left;">content</th>
+            <td th:text="${post.content}"></td>
+        </tr>
+    </table>
+<!--    <h1 th:text="${post.title}"></h1>-->
+<!--    <p th:text="${post.content}"></p>-->
+<!--    <p><strong>Author:</strong> <span th:text="${post.author}"></span></p>-->
+<!--    <p><strong>Created Date:</strong>-->
+<!--    &lt;!&ndash; dates.format()은 LocalDateTime 타입을 인식하지 못하므로 temporals.format()을 사용 &ndash;&gt;-->
+<!--        <span th:text="${#temporals.format(post.createdDate, 'yyyy-MM-dd HH:mm:ss')}"></span>-->
+<!--    </p>-->
 <!-- 댓글 영역 -->
-    <h2>comment</h2>
+    <h4>comment</h4>
     <ul>
         <li th:each="comment : ${post.comments}">
             <p th:text="${comment.author} + ': ' + ${comment.content}"></p>
