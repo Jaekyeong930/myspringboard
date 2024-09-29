@@ -17,8 +17,9 @@
 <!-- 댓글 영역 -->
     <h2>comment</h2>
     <ul>
-        <li th:each="comment : ${comments}">
-            <span th:text="${comment.author} + ': ' + ${comment.content}"></span>
+        <li th:each="comment : ${post.comments}">
+            <p th:text="${comment.author} + ': ' + ${comment.content}"></p>
+            <p th:text="${#temporals.format(comment.createdDate, 'yyyy-MM-dd HH:mm:ss')}"></p>
         </li>
     </ul>
     <ul>

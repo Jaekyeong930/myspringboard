@@ -20,7 +20,10 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long   commentId;
 
-    private Long   postId;
+    @ManyToOne // 1:n
+    @JoinColumn(name = "post_id") // comment 테이블의 post_id가 Post 테이블의 PK를 참조하는 FK가 되도록 설정
+    private Post post;
+
     private String content;
     private String author;
     private LocalDateTime createdDate;

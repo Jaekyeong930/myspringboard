@@ -14,17 +14,17 @@ public class PostService {
         this.postRepository = postRepository;
     }
 
-    // Read post lisst
+    // read post list
     public List<Post> getAllPosts() {
         return postRepository.findAll();
     }
 
-    // Search post page by postId
+    // get post page by postId
     public Post getPostById(Long postId) {
         return postRepository.findById(postId).orElse(null);
     }
 
-    // Store post
+    // save new post
     public Post savePost(Post post) {
         return postRepository.save(post);
     }
