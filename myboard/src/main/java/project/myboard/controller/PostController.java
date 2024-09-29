@@ -30,7 +30,7 @@ public class PostController {
 
     // get post detail page
     @GetMapping("/post/{postId}")
-    public String viewPostDetail(@PathVariable Long postId, Model model) {
+    public String viewPostDetail(@PathVariable int postId, Model model) {
         Post post = postService.getPostById(postId);
         model.addAttribute("post", post);
         return "post_detail";

@@ -18,9 +18,9 @@ import java.time.LocalDateTime;
 public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long   commentId;
+    private long   commentId;
 
-    private int    postId;
+    private long   postId;
     private String content;
     private String author;
     private LocalDateTime createdDate;

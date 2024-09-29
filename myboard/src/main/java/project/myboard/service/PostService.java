@@ -20,7 +20,7 @@ public class PostService {
     }
 
     // Search post page by postId
-    public Post getPostById(Long postId) {
+    public Post getPostById(long postId) {
         return postRepository.findById(postId).orElse(null);
     }
 
