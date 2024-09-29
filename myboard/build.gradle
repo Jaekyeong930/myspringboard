@@ -44,6 +44,12 @@ dependencies {
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
+tasks.withType(JavaCompile) {
+//	@PathVariable을 사용할 때 Spring이 요청 매개변수를 바인딩하는데 파라미터 플래그가 없으면 에러가 발생함
+//	java.lang.IllegalArgumentException: Name for argument of type [java.lang.Long] not specified, and parameter name information not available via reflection. Ensure that the compiler uses the '-parameters' flag.
+	options.compilerArgs << "-parameters"
+}
+
 tasks.named('test') {
 	useJUnitPlatform()
 }

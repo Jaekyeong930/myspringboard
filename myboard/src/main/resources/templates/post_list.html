@@ -8,6 +8,7 @@
     <h1>Post List</h1>
     <ul>
         <li th:each="post : ${postList}">
+<!--            /post/{postId}-->
             <a th:href="@{/post/{postId}(postId=${post.postId})}" th:text="${post.title}"></a>
         </li>
     </ul>
