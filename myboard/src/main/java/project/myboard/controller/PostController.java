@@ -30,9 +30,17 @@ public class PostController {
 
     // get post detail page
     @GetMapping("/post/{postId}")
+    // @PathVariable을 명시하지 않을 경우 500에러가 발생함 (하기 문구 참조)
+    // Name for argument of type [java.lang.Long] not specified, and parameter name information not available via reflection. Ensure that the compiler uses the '-parameters' flag.
     public String viewPostDetail(@PathVariable("postId") Long postId, Model model) {
         Post post = postService.getPostById(postId);
         model.addAttribute("post", post);
         return "post_detail";
     }
 }
+
+// 컨트롤러 클래스란?
+// 역할 : 클라이언트의 요청을 받고, 서비스 클래스를 호출하여 결과를 반환
+// 위치 : 어플리케이션의 가장 바깥쪽, 프레젠테이션 계층
+// 주요 기능 : 클라이언트로부터 HTTP요청을 받고, 결과를 반환
+// 의존 : 주로 서비스 클래스에 의존

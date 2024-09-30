@@ -22,18 +22,21 @@ public class CommentController {
         this.postService = postService;
     }
 
-    // add new comment
+    // add new comment 새 댓글 작성
     @PostMapping("/post/{postId}/comment")
-    public String addComment(@PathVariable Long postId, @RequestParam String content, @RequestParam String author) {
+    public String addComment(@PathVariable("postId") Long postId, @RequestParam String content, @RequestParam String author) {
         Post post = postService.getPostById(postId);
         Comment comment = new Comment();
         comment.setPost(post);
         comment.setContent(content);
         comment.setAuthor(author);
         commentService.saveComment(comment);
+        
+        // 댓글 작성 후 원래 페이지로 리다이렉트
         return "redirect:/post/" + postId;
-    }
-    // PathVariable은 URL경로(/example/kim/28) 형식으로 전달됨, RequestParam은 쿼리문 형식으로 전달됨 (/example?name=kim&age=28)
+    } // PathVariable은 URL경로(/example/kim/28) 형식으로 전달됨, RequestParam은 쿼리문 형식으로 전달됨 (/example?name=kim&age=28)
+
 
 
 }
+

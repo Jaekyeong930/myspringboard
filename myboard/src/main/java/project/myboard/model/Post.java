@@ -32,3 +32,9 @@ public class Post {
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
     private List<Comment> comments = new ArrayList<>();
 }
+
+// 서비스 클래스란?
+// 역할 : 비즈니스 로직을 처리하는 핵심 클래스
+// 위치 : 서비스 계층
+// 주요 기능 : 데이터 처리, 비즨스 규칙, 트랜잭션 관리 등 핵심 로직 처리
+// 의존성 : DB와의 상호작용을 위해 Repository나 DAO 클래스에 의존

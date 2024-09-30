@@ -13,18 +13,18 @@ import java.util.List;
 public class CommentService {
     private final CommentRepository commentRepository;
 
-    @Autowired
+    @Autowired // Autowired 어노테이션을 사용함으로써
     public CommentService(CommentRepository commentRepository) {
         this.commentRepository = commentRepository;
     }
 
-    // get comments in the post
+    // get comments in the post 선택한 게시글의 댓글을 불러온다.
     public List<Comment> getCommentsByPost(Post post) {
         return commentRepository.findByPost(post);
     }
 
 
-    // save new comment
+    // save new comment 새로운 댓글 보존
     public Comment saveComment(Comment comment) {
         comment.setCreatedDate(LocalDateTime.now());
         return commentRepository.save(comment);
